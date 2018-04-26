@@ -24,10 +24,10 @@ $(document).ready(function () {
             scores: scoresArray
         };
 
-        console.log(newFriend);
+        // console.log(newFriend);
 
         $.post("/api/friends", newFriend, function (data) {
-            console.log("matach: " +data);
+            // console.log("matach: " +data);
             $(".matchName").text(data.name);
             $(".matchPicture").attr("src", data.photo);
 

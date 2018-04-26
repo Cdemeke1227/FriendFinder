@@ -20,33 +20,41 @@ module.exports = function (app) {
         //     scores: [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ]
         // };
         var newFriendScores = newFriend.scores;
-        console.log(newFriendScores);
+        // console.log("new freind score:" + newFriendScores);
+        // console.log(friends[0]);
 
         //   Add Logic to find match
-        var scoresDiffArray;
+        var scoresDiffArray = [];
         var match = 0;
         for (var i = 0; i < friends.length; i++) {
             var scoreDifference = 0;
-            for (var j = 0; i < newFriendScores.length; j++) {
+            for (var j = 0; j < 10; j++) {
+
+                // console.log(parseInt(newFriendScores[j]));
 
                 scoreDifference += (Math.abs(parseInt(friends[i].scores[j] - parseInt(newFriendScores[j]))));
 
             }
-            scoresArray.push(scoreDifference);
+            scoresDiffArray.push(scoreDifference);
         }
+        // console.log("array of diff " + scoresDiffArray);
 
-        for (var i = 0; i < scoresDiffArray.length; i++) {
+
+        for (var i = 0; i <= scoresDiffArray.length; i++) {
             if (scoresDiffArray[i] <= scoresDiffArray[match]) {
                 match = i;
             }
         }
-        
+
+
+
         var bestMatch = friends[match];
         res.json(bestMatch);
-        console.log(bestMatch);
+        // console.log("best match: " + bestMatch);
 
-        friends.push(newFriend);
-        res.json(true);
+
+        // friends.push(newFriend);
+        // res.json(true);
     })
 
 
